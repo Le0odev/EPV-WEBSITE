@@ -115,7 +115,7 @@ function AboutSection() {
               Nossa missão é simples: levar saúde e sabor à sua mesa, com a confiança e o carinho de quem entende do assunto. Valorizamos a tradição, o atendimento próximo e a pureza de cada item que oferecemos.
             </p>
           </div>
-          <Image src="/logo.png" alt="Loja Empório Verde Grãos" data-ai-hint="natural store staff" width={600} height={400} className="mx-auto aspect-video overflow-hidden rounded-xl object-cover" />
+          <Image src="/logo.png" alt="Loja Empório Verde Grãos" data-ai-hint="natural store staff" width={500} height={500} className="mx-auto aspect-square overflow-hidden rounded-xl object-contain" />
         </div>
       </div>
     </section>
