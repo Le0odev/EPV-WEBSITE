@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Leaf, Truck, Users, Award, Utensils, Sprout, Wheat, Coffee, Phone, Mail, MapPin } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
 
-const WHATSAPP_LINK = "https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos.";
+const WHATSAPP_LINK = "https://wa.me/5581991676177?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos.";
 
 function HeroSection() {
   return (
@@ -136,13 +136,13 @@ function ContactSection() {
                     <h3 className="text-2xl font-semibold">Informações de Contato</h3>
                     <div className="space-y-2 text-muted-foreground">
                         <a href="https://maps.app.goo.gl/yQ4u2v6AozY7RzP36" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary"><MapPin className="h-5 w-5"/>Av. Jerônimo Gueiros - Centro, Abreu e Lima - PE</a>
-                        <a href="tel:+5511999999999" className="flex items-center gap-2 hover:text-primary"><Phone className="h-5 w-5"/>(11) 99999-9999</a>
+                        <a href="tel:+5581991676177" className="flex items-center gap-2 hover:text-primary"><Phone className="h-5 w-5"/>(81) 99167-6177</a>
                         <a href="mailto:contato@emporioverde.com" className="flex items-center gap-2 hover:text-primary"><Mail className="h-5 w-5"/>contato@emporioverde.com</a>
                     </div>
                 </div>
                 <div className="space-y-4">
                     <h3 className="text-2xl font-semibold">Horário de Funcionamento</h3>
-                    <p className="text-muted-foreground">Segunda a Sexta: 9h às 18h<br/>Sábados: 9h às 13h</p>
+                    <p className="text-muted-foreground">Segunda a Sábado: 08:00 às 18:00</p>
                 </div>
                 <div className="aspect-video w-full">
                     <iframe 

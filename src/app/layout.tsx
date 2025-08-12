@@ -18,7 +18,7 @@ const schemaMarkup = {
   "logo": "",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+55-11-99999-9999",
+    "telephone": "+55-81-99167-6177",
     "contactType": "Customer Service"
   }
 };

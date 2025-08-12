@@ -7,7 +7,7 @@ import { Menu } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { useState } from 'react';
 
-const WHATSAPP_LINK = "https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos.";
+const WHATSAPP_LINK = "https://wa.me/5581991676177?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos.";
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
