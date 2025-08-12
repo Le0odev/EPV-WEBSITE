@@ -83,11 +83,9 @@ function CategoryCard({ category }: CategoryCardProps) {
       <CardHeader className="p-0">
         <Image src={category.imageUrl} alt={category.name} data-ai-hint={category.imageHint} width={600} height={400} className="h-48 w-full object-cover" />
       </CardHeader>
-      <CardContent className="p-4 flex flex-col flex-1">
-         <div className="flex items-center gap-2">
-            <category.icon className="h-5 w-5 text-primary" />
-            <CardTitle className="text-lg font-semibold">{category.name}</CardTitle>
-        </div>
+      <CardContent className="p-4 flex-grow flex flex-col justify-center items-center text-center">
+        <category.icon className="h-8 w-8 text-primary mb-2" />
+        <CardTitle className="text-lg font-semibold">{category.name}</CardTitle>
       </CardContent>
     </Card>
   )
@@ -95,10 +93,10 @@ function CategoryCard({ category }: CategoryCardProps) {
 
 function CategoriesSection() {
     const categories = [
-        { name: "Cereais e Grãos", icon: Wheat, imageUrl: "https://placehold.co/600x400.png", imageHint: "oats cereal" },
-        { name: "Chás e Infusões", icon: Coffee, imageUrl: "https://placehold.co/600x400.png", imageHint: "chamomile tea" },
-        { name: "Ervas e Temperos", icon: Leaf, imageUrl: "https://placehold.co/600x400.png", imageHint: "oregano spice" },
-        { name: "Suplementos", icon: Sprout, imageUrl: "https://placehold.co/600x400.png", imageHint: "whey protein" },
+        { name: "Cereais e Grãos", icon: Wheat, imageUrl: "https://images.unsplash.com/photo-1574484152510-903878da786c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxDZXJlYWlzJTIwZSUyMEdyJUMzJUEzb3N8ZW58MHx8fHwxNzU1MDMwMTgyfDA&ixlib=rb-4.1.0&q=80&w=1080", imageHint: "oats cereal" },
+        { name: "Chás e Infusões", icon: Coffee, imageUrl: "https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxDaCVDMyVBMXxlbnwwfHx8fDE3NTUwMzAxOTh8MA&ixlib=rb-4.1.0&q=80&w=1080", imageHint: "chamomile tea" },
+        { name: "Ervas e Temperos", icon: Leaf, imageUrl: "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxUZW1wZXJvc3xlbnwwfHx8fDE3NTUwMzAyMTJ8MA&ixlib=rb-4.1.0&q=80&w=1080", imageHint: "oregano spice" },
+        { name: "Suplementos", icon: Sprout, imageUrl: "https://images.unsplash.com/photo-1683394305929-5e7c8d942127?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxDcmVhdGluZXxlbnwwfHx8fDE3NTUwMzAyMjF8MA&ixlib=rb-4.1.0&q=80&w=1080", imageHint: "whey protein" },
     ];
   return (
     <section id="produtos" className="py-12 md:py-24 bg-white">
@@ -199,3 +197,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
