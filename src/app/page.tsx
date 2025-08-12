@@ -123,8 +123,8 @@ async function CategoryCard({ category }: CategoryCardProps) {
 
 async function CategoriesSection() {
     const categories = [
-        { name: "Grãos e Cereais", icon: Wheat },
-        { name: "Chás e infusões", icon: Coffee },
+        { name: "Cereais e Grãos", icon: Wheat },
+        { name: "Chás e Infusões", icon: Coffee },
         { name: "Ervas e Temperos", icon: Leaf },
         { name: "Suplementos", icon: Sprout },
     ];
