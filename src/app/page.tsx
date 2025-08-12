@@ -72,7 +72,7 @@ function CategoriesSection() {
         { name: "Grãos e Cereais", icon: Wheat, image: "https://images.unsplash.com/photo-1574484152510-903878da786c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnciVDMyVBM29zJTIwZSUyMGNlcmVhaXN8ZW58MHx8fHwxNzU1MDI2NzA2fDA&ixlib=rb-4.1.0&q=80&w=1080", hint: "grains cereals" },
         { name: "Chás e infusões", icon: Coffee, image: "https://images.unsplash.com/photo-1550058062-61048adffb7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2glQzMlQTElMjBoaWJpc2N1c3xlbnwwfHx8fDE3NTUwMjY3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080", hint: "tea herbs" },
         { name: "Ervas e Temperos", icon: Leaf, image: "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZW1wZXJvc3xlbnwwfHx8fDE3NTUwMjY4NzV8MA&ixlib=rb-4.1.0&q=80&w=1080", hint: "herbs spices" },
-        { name: "Suplementos", icon: Sprout, image: "https://placehold.co/600x400.png", hint: "supplements" },
+        { name: "Suplementos", icon: Sprout, image: "https://images.unsplash.com/photo-1683394305929-5e7c8d942127?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxDcmVhdGluYXxlbnwwfHx8fDE3NTUwMjcwNDd8MA&ixlib=rb-4.1.0&q=80&w=1080", hint: "supplements" },
     ];
   return (
     <section id="produtos" className="py-12 md:py-24 bg-white">
