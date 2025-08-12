@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet';
+import { Sheet, SheetTrigger, SheetContent, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { useState } from 'react';
@@ -48,6 +48,8 @@ export function Header() {
                         </Button>
                     </SheetTrigger>
                     <SheetContent side="right">
+                        <SheetTitle><span className="sr-only">Menu</span></SheetTitle>
+                        <SheetDescription><span className="sr-only">Navegação principal</span></SheetDescription>
                         <div className="flex flex-col p-6 pt-10">
                             <Logo />
                             <nav className="mt-8 flex flex-col gap-6">
