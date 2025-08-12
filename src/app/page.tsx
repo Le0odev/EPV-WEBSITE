@@ -1,3 +1,4 @@
+
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { WhatsAppButton } from '@/components/whatsapp-button';
@@ -6,6 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Leaf, Truck, Users, Award, Utensils, Sprout, Wheat, Coffee, Phone, Mail, MapPin } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
+import { recommendProducts } from '@/ai/flows/product-recommendation';
+import type { Product } from '@/services/product-service';
 
 const WHATSAPP_LINK = "https://wa.me/5581991676177?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos.";
 
@@ -67,12 +70,63 @@ function HighlightsSection() {
   );
 }
 
-function CategoriesSection() {
+interface CategoryCardProps {
+  category: {
+    name: string;
+    icon: React.ElementType;
+  };
+}
+
+async function CategoryCard({ category }: CategoryCardProps) {
+  const { products } = await recommendProducts({ categoryName: category.name });
+  const product = products[0] as Product | undefined;
+
+  if (!product) {
+    return (
+        <Card className="overflow-hidden transition-shadow hover:shadow-lg">
+          <CardHeader className="p-0">
+             <div className="h-48 w-full bg-muted flex items-center justify-center text-muted-foreground">Sem produtos</div>
+          </CardHeader>
+          <CardContent className="p-4">
+            <div className="flex items-center gap-2">
+              <category.icon className="h-5 w-5 text-primary" />
+              <CardTitle className="text-lg font-semibold">{category.name}</CardTitle>
+            </div>
+             <p className="text-sm text-muted-foreground mt-2">Nenhum produto encontrado nesta categoria.</p>
+          </CardContent>
+        </Card>
+    );
+  }
+  
+  return (
+    <Card className="overflow-hidden transition-shadow hover:shadow-lg flex flex-col">
+      <CardHeader className="p-0">
+        <Image src={product.imageUrl} alt={product.name} data-ai-hint={product.imageHint} width={600} height={400} className="h-48 w-full object-cover" />
+      </CardHeader>
+      <CardContent className="p-4 flex flex-col flex-1">
+         <div className="flex items-center gap-2">
+            <category.icon className="h-5 w-5 text-primary" />
+            <CardTitle className="text-lg font-semibold">{category.name}</CardTitle>
+        </div>
+        <div className="mt-4 flex-1">
+            <h4 className="font-semibold">{product.name}</h4>
+            <p className="text-sm text-muted-foreground mt-1">{product.description}</p>
+        </div>
+        <div className="mt-4 flex justify-between items-center">
+            <span className="text-lg font-bold text-primary">R$ {product.price.toFixed(2)}</span>
+            <Button size="sm">Ver mais</Button>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+async function CategoriesSection() {
     const categories = [
-        { name: "Grãos e Cereais", icon: Wheat, image: "https://images.unsplash.com/photo-1574484152510-903878da786c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnciVDMyVBM29zJTIwZSUyMGNlcmVhaXN8ZW58MHx8fHwxNzU1MDI2NzA2fDA&ixlib=rb-4.1.0&q=80&w=1080", hint: "grains cereals" },
-        { name: "Chás e infusões", icon: Coffee, image: "https://images.unsplash.com/photo-1550058062-61048adffb7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2glQzMlQTElMjBoaWJpc2N1c3xlbnwwfHx8fDE3NTUwMjY3OTB8MA&ixlib=rb-4.1.0&q=80&w=1080", hint: "tea herbs" },
-        { name: "Ervas e Temperos", icon: Leaf, image: "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZW1wZXJvc3xlbnwwfHx8fDE3NTUwMjY4NzV8MA&ixlib=rb-4.1.0&q=80&w=1080", hint: "herbs spices" },
-        { name: "Suplementos", icon: Sprout, image: "https://images.unsplash.com/photo-1683394305929-5e7c8d942127?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxDcmVhdGluYXxlbnwwfHx8fDE3NTUwMjcwNDd8MA&ixlib=rb-4.1.0&q=80&w=1080", hint: "supplements" },
+        { name: "Grãos e Cereais", icon: Wheat },
+        { name: "Chás e infusões", icon: Coffee },
+        { name: "Ervas e Temperos", icon: Leaf },
+        { name: "Suplementos", icon: Sprout },
     ];
   return (
     <section id="produtos" className="py-12 md:py-24 bg-white">
@@ -83,17 +137,7 @@ function CategoriesSection() {
         </div>
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category) => (
-            <Card key={category.name} className="overflow-hidden transition-shadow hover:shadow-lg">
-              <CardHeader className="p-0">
-                <Image src={category.image} alt={category.name} data-ai-hint={category.hint} width={600} height={400} className="h-48 w-full object-cover" />
-              </CardHeader>
-              <CardContent className="p-4">
-                <div className="flex items-center gap-2">
-                  <category.icon className="h-5 w-5 text-primary" />
-                  <CardTitle className="text-lg font-semibold">{category.name}</CardTitle>
-                </div>
-              </CardContent>
-            </Card>
+            <CategoryCard key={category.name} category={category} />
           ))}
         </div>
       </div>
