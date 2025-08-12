@@ -72,8 +72,6 @@ interface CategoryCardProps {
   category: {
     name: string;
     icon: React.ElementType;
-    productName: string;
-    price: string;
     imageUrl: string;
     imageHint: string;
   };
@@ -83,19 +81,12 @@ function CategoryCard({ category }: CategoryCardProps) {
   return (
     <Card className="overflow-hidden transition-shadow hover:shadow-lg flex flex-col">
       <CardHeader className="p-0">
-        <Image src={category.imageUrl} alt={category.productName} data-ai-hint={category.imageHint} width={600} height={400} className="h-48 w-full object-cover" />
+        <Image src={category.imageUrl} alt={category.name} data-ai-hint={category.imageHint} width={600} height={400} className="h-48 w-full object-cover" />
       </CardHeader>
       <CardContent className="p-4 flex flex-col flex-1">
          <div className="flex items-center gap-2">
             <category.icon className="h-5 w-5 text-primary" />
             <CardTitle className="text-lg font-semibold">{category.name}</CardTitle>
-        </div>
-        <div className="mt-4 flex-1">
-            <h4 className="font-semibold">{category.productName}</h4>
-        </div>
-        <div className="mt-4 flex justify-between items-center">
-            <span className="text-lg font-bold text-primary">{category.price}</span>
-            <Button size="sm">Ver mais</Button>
         </div>
       </CardContent>
     </Card>
@@ -104,10 +95,10 @@ function CategoryCard({ category }: CategoryCardProps) {
 
 function CategoriesSection() {
     const categories = [
-        { name: "Cereais e Grãos", icon: Wheat, productName: "Aveia em Flocos", price: "R$ 5,00", imageUrl: "https://placehold.co/600x400.png", imageHint: "oats cereal" },
-        { name: "Chás e Infusões", icon: Coffee, productName: "Chá de Camomila", price: "R$ 8,00", imageUrl: "https://placehold.co/600x400.png", imageHint: "chamomile tea" },
-        { name: "Ervas e Temperos", icon: Leaf, productName: "Orégano", price: "R$ 3,50", imageUrl: "https://placehold.co/600x400.png", imageHint: "oregano spice" },
-        { name: "Suplementos", icon: Sprout, productName: "Whey Protein", price: "R$ 90,00", imageUrl: "https://placehold.co/600x400.png", imageHint: "whey protein" },
+        { name: "Cereais e Grãos", icon: Wheat, imageUrl: "https://placehold.co/600x400.png", imageHint: "oats cereal" },
+        { name: "Chás e Infusões", icon: Coffee, imageUrl: "https://placehold.co/600x400.png", imageHint: "chamomile tea" },
+        { name: "Ervas e Temperos", icon: Leaf, imageUrl: "https://placehold.co/600x400.png", imageHint: "oregano spice" },
+        { name: "Suplementos", icon: Sprout, imageUrl: "https://placehold.co/600x400.png", imageHint: "whey protein" },
     ];
   return (
     <section id="produtos" className="py-12 md:py-24 bg-white">
