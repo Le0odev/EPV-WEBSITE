@@ -1,8 +1,8 @@
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useEffect, useRef } from 'react';
+import { useFormStatus } from 'react-dom';
 import { submitContactForm, type FormState } from '@/app/actions';
-import { useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -24,7 +24,7 @@ function SubmitButton() {
 }
 
 export function ContactForm() {
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -58,7 +58,7 @@ export function ContactForm() {
       </div>
       <div className="space-y-1.5">
         <Label htmlFor="phone">Telefone / WhatsApp</Label>
-        <Input id="phone" name="phone" type="tel" placeholder="(11) 99999-9999" required aria-describedby="phone-error" />
+        <Input id="phone" name="phone" type="tel" placeholder="(81) 99167-6177" required aria-describedby="phone-error" />
         {state.errors?.phone && <p id="phone-error" className="text-sm text-destructive mt-1">{state.errors.phone[0]}</p>}
       </div>
       <div className="space-y-1.5">
