@@ -24,7 +24,7 @@ export function Footer() {
                     <div>
                         <h3 className="mb-4 text-base font-semibold text-foreground">Contato</h3>
                         <address className="not-italic space-y-2 text-sm">
-                            <p>Rua das Plantas, 123, São Paulo - SP</p>
+                            <p>Av. Jerônimo Gueiros - Centro, Abreu e Lima - PE</p>
                             <a href="tel:+5511999999999" className="block hover:text-foreground">(11) 99999-9999</a>
                             <a href="mailto:contato@verdeconexao.com.br" className="block hover:text-foreground">contato@emporioverde.com</a>
                         </address>

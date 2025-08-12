@@ -135,7 +135,7 @@ function ContactSection() {
                 <div className="space-y-4">
                     <h3 className="text-2xl font-semibold">Informações de Contato</h3>
                     <div className="space-y-2 text-muted-foreground">
-                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary"><MapPin className="h-5 w-5"/>Rua das Plantas, 123 - São Paulo, SP</a>
+                        <a href="https://maps.app.goo.gl/yQ4u2v6AozY7RzP36" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary"><MapPin className="h-5 w-5"/>Av. Jerônimo Gueiros - Centro, Abreu e Lima - PE</a>
                         <a href="tel:+5511999999999" className="flex items-center gap-2 hover:text-primary"><Phone className="h-5 w-5"/>(11) 99999-9999</a>
                         <a href="mailto:contato@emporioverde.com" className="flex items-center gap-2 hover:text-primary"><Mail className="h-5 w-5"/>contato@emporioverde.com</a>
                     </div>
@@ -146,7 +146,7 @@ function ContactSection() {
                 </div>
                 <div className="aspect-video w-full">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197545237723!2d-46.656571184476!3d-23.56137156762313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0x2063e54045d3ae38!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1621511874987!5m2!1spt-BR!2sbr" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.8993722249224!2d-34.90283332499381!3d-7.905580592117551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab15a46d6ca755%3A0xb6d31d0cce748388!2zRW1ww7NyaW8gVmVyZGUgR3LDo29z!5e0!3m2!1spt-BR!2sbr!4v1755026480401!5m2!1spt-BR!2sbr" 
                         width="100%" 
                         height="100%" 
                         style={{ border:0 }} 
