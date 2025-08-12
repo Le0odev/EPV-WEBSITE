@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Leaf, Truck, Users, Award, Utensils, Sprout, Wheat, Coffee, Phone, Mail, MapPin } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
+import Link from 'next/link';
 
 const WHATSAPP_LINK = "https://wa.me/5581991676177?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos.";
 
@@ -79,7 +80,7 @@ interface CategoryCardProps {
 
 function CategoryCard({ category }: CategoryCardProps) {
   return (
-    <Card className="overflow-hidden transition-shadow hover:shadow-lg flex flex-col">
+    <Card className="overflow-hidden transition-shadow hover:shadow-lg flex flex-col group relative">
       <CardHeader className="p-0">
         <Image src={category.imageUrl} alt={category.name} data-ai-hint={category.imageHint} width={600} height={400} className="h-48 w-full object-cover" />
       </CardHeader>
@@ -87,6 +88,13 @@ function CategoryCard({ category }: CategoryCardProps) {
         <category.icon className="h-8 w-8 text-primary mb-2" />
         <CardTitle className="text-lg font-semibold">{category.name}</CardTitle>
       </CardContent>
+      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+        <Button asChild>
+          <Link href="https://emporioverdegraos.vercel.app/catalogo">
+            Catálogo
+          </Link>
+        </Button>
+      </div>
     </Card>
   )
 }
@@ -197,5 +205,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
