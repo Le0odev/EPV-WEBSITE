@@ -1,4 +1,5 @@
 
+'use client'
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { WhatsAppButton } from '@/components/whatsapp-button';
@@ -8,6 +9,17 @@ import { Button } from '@/components/ui/button';
 import { Leaf, Truck, Users, Award, Utensils, Sprout, Wheat, Coffee, Phone, Mail, MapPin } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
 import Link from 'next/link';
+import * as React from 'react';
+import Autoplay from "embla-carousel-autoplay"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { useMediaQuery } from "@/hooks/use-media-query"
+
 
 const WHATSAPP_LINK = "https://wa.me/5581991676177?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos.";
 
@@ -100,6 +112,11 @@ function CategoryCard({ category }: CategoryCardProps) {
 }
 
 function CategoriesSection() {
+    const isMobile = useMediaQuery("(max-width: 768px)");
+    const plugin = React.useRef(
+      Autoplay({ delay: 2000, stopOnInteraction: true })
+    )
+
     const categories = [
         { name: "Cereais e Grãos", icon: Wheat, imageUrl: "https://images.unsplash.com/photo-1574484152510-903878da786c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxDZXJlYWlzJTIwZSUyMEdyJUMzJUEzb3N8ZW58MHx8fHwxNzU1MDMwMTgyfDA&ixlib=rb-4.1.0&q=80&w=1080", imageHint: "oats cereal" },
         { name: "Chás e Infusões", icon: Coffee, imageUrl: "https://images.unsplash.com/photo-1563822249366-3efb23b8e0c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxDaCVDMyVBMXxlbnwwfHx8fDE3NTUwMzAxOTh8MA&ixlib=rb-4.1.0&q=80&w=1080", imageHint: "chamomile tea" },
@@ -113,11 +130,30 @@ function CategoriesSection() {
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl font-headline">Nossos Produtos</h2>
           <p className="mt-4 text-muted-foreground md:text-lg">Explore nossas categorias e encontre o que precisa.</p>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((category) => (
-            <CategoryCard key={category.name} category={category} />
-          ))}
-        </div>
+        {isMobile ? (
+          <Carousel
+            plugins={[plugin.current]}
+            className="w-full mt-12"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+          >
+            <CarouselContent>
+              {categories.map((category) => (
+                <CarouselItem key={category.name} className="basis-full">
+                    <CategoryCard category={category} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        ) : (
+          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {categories.map((category) => (
+              <CategoryCard key={category.name} category={category} />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
