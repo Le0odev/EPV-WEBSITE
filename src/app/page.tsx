@@ -7,8 +7,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Leaf, Truck, Users, Award, Utensils, Sprout, Wheat, Coffee, Phone, Mail, MapPin } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
-import { recommendProducts } from '@/ai/flows/product-recommendation';
-import type { Product } from '@/services/product-service';
 
 const WHATSAPP_LINK = "https://wa.me/5581991676177?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos.";
 
@@ -74,34 +72,18 @@ interface CategoryCardProps {
   category: {
     name: string;
     icon: React.ElementType;
+    productName: string;
+    price: string;
+    imageUrl: string;
+    imageHint: string;
   };
 }
 
-async function CategoryCard({ category }: CategoryCardProps) {
-  const { products } = await recommendProducts({ categoryName: category.name });
-  const product = products[0] as Product | undefined;
-
-  if (!product) {
-    return (
-        <Card className="overflow-hidden transition-shadow hover:shadow-lg">
-          <CardHeader className="p-0">
-             <div className="h-48 w-full bg-muted flex items-center justify-center text-muted-foreground">Sem produtos</div>
-          </CardHeader>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-2">
-              <category.icon className="h-5 w-5 text-primary" />
-              <CardTitle className="text-lg font-semibold">{category.name}</CardTitle>
-            </div>
-             <p className="text-sm text-muted-foreground mt-2">Nenhum produto encontrado nesta categoria.</p>
-          </CardContent>
-        </Card>
-    );
-  }
-  
+function CategoryCard({ category }: CategoryCardProps) {
   return (
     <Card className="overflow-hidden transition-shadow hover:shadow-lg flex flex-col">
       <CardHeader className="p-0">
-        <Image src={product.imageUrl} alt={product.name} data-ai-hint={product.imageHint} width={600} height={400} className="h-48 w-full object-cover" />
+        <Image src={category.imageUrl} alt={category.productName} data-ai-hint={category.imageHint} width={600} height={400} className="h-48 w-full object-cover" />
       </CardHeader>
       <CardContent className="p-4 flex flex-col flex-1">
          <div className="flex items-center gap-2">
@@ -109,11 +91,10 @@ async function CategoryCard({ category }: CategoryCardProps) {
             <CardTitle className="text-lg font-semibold">{category.name}</CardTitle>
         </div>
         <div className="mt-4 flex-1">
-            <h4 className="font-semibold">{product.name}</h4>
-            <p className="text-sm text-muted-foreground mt-1">{product.description}</p>
+            <h4 className="font-semibold">{category.productName}</h4>
         </div>
         <div className="mt-4 flex justify-between items-center">
-            <span className="text-lg font-bold text-primary">R$ {product.price.toFixed(2)}</span>
+            <span className="text-lg font-bold text-primary">{category.price}</span>
             <Button size="sm">Ver mais</Button>
         </div>
       </CardContent>
@@ -121,12 +102,12 @@ async function CategoryCard({ category }: CategoryCardProps) {
   )
 }
 
-async function CategoriesSection() {
+function CategoriesSection() {
     const categories = [
-        { name: "Cereais e Grãos", icon: Wheat },
-        { name: "Chás e Infusões", icon: Coffee },
-        { name: "Ervas e Temperos", icon: Leaf },
-        { name: "Suplementos", icon: Sprout },
+        { name: "Cereais e Grãos", icon: Wheat, productName: "Aveia em Flocos", price: "R$ 5,00", imageUrl: "https://placehold.co/600x400.png", imageHint: "oats cereal" },
+        { name: "Chás e Infusões", icon: Coffee, productName: "Chá de Camomila", price: "R$ 8,00", imageUrl: "https://placehold.co/600x400.png", imageHint: "chamomile tea" },
+        { name: "Ervas e Temperos", icon: Leaf, productName: "Orégano", price: "R$ 3,50", imageUrl: "https://placehold.co/600x400.png", imageHint: "oregano spice" },
+        { name: "Suplementos", icon: Sprout, productName: "Whey Protein", price: "R$ 90,00", imageUrl: "https://placehold.co/600x400.png", imageHint: "whey protein" },
     ];
   return (
     <section id="produtos" className="py-12 md:py-24 bg-white">
