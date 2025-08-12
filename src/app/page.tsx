@@ -109,13 +109,13 @@ function AboutSection() {
           <div className="flex flex-col justify-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl font-headline">Nossa História</h2>
             <p className="text-muted-foreground md:text-lg">
-              Nascido da paixão por uma vida saudável e pelo poder da natureza, o Empório Verde Grãos é um sonho que se tornou realidade. Há mais de X anos, nos dedicamos a selecionar os melhores grãos, ervas e produtos naturais, acreditando que a qualidade do que comemos reflete diretamente em nosso bem-estar.
+              Nascido da paixão por uma vida saudável e pelo poder da naturez, o Empório Verde Grãos é um sonho que se tornou realidade. Há mais de X anos, nos dedicamos a selecionar os melhores grãos, ervas e produtos naturais, acreditando que a qualidade do que comemos reflete diretamente em nosso bem-estar.
             </p>
             <p className="text-muted-foreground md:text-lg">
               Nossa missão é simples: levar saúde e sabor à sua mesa, com a confiança e o carinho de quem entende do assunto. Valorizamos a tradição, o atendimento próximo e a pureza de cada item que oferecemos.
             </p>
           </div>
-          <Image src="/logo.png" alt="Loja Empório Verde Grãos" data-ai-hint="natural store staff" width={500} height={500} className="mx-auto aspect-square overflow-hidden rounded-xl object-contain" />
+          <Image src="https://fv5-4.files.fm/thumb_show.php?i=g7szg25jpv&view&v=1&PHPSESSID=0a13dc225a4e3f464ecc7f287fd4878d77b414a3" alt="Loja Empório Verde Grãos" data-ai-hint="natural store staff" width={500} height={500} className="mx-auto aspect-square overflow-hidden rounded-xl object-contain" />
         </div>
       </div>
     </section>
