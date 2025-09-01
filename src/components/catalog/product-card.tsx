@@ -46,8 +46,10 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
                 <h3 className="font-semibold mobile-text-sm lg:text-lg text-foreground line-clamp-2 leading-tight group-hover:text-primary mobile-transition mb-1 lg:mb-1.5">
                   {product.nome}
                 </h3>
-                
-                <span className="mobile-text-sm lg:text-xl font-bold text-primary">{formatPrice(product.preco)}</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="mobile-text-sm lg:text-xl font-bold text-primary">{formatPrice(product.preco)}</span>
+                  <span className="text-xs text-muted-foreground lg:hidden">ver detalhes</span>
+                </div>
             </div>
 
             {/* Click Indicator */}
