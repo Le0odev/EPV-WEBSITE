@@ -23,47 +23,7 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
     if (text.length <= maxLength) return text
     return text.substring(0, maxLength) + "..."
   }
-
-  // Validar se a URL da imagem é válida
-  const isValidImageUrl = (url: string): boolean => {
-    if (!url || typeof url !== "string") return false
-    try {
-      const urlObj = new URL(url)
-      return urlObj.protocol === "http:" || urlObj.protocol === "https"
-    } catch {
-      return false
-    }
-  }
-
-  // Renderizar imagem ou placeholder
-  const renderImage = (imageUrl: string, altText: string, className: string) => {
-    if (isValidImageUrl(imageUrl)) {
-      return (
-        <Image
-          src={imageUrl || "/placeholder.svg"}
-          alt={altText}
-          width={300}
-          height={200}
-          className={className}
-          onError={(e) => {
-            // Se a imagem falhar, substitui pelo placeholder
-            const target = e.target as HTMLImageElement
-            target.style.display = "none"
-            const parent = target.parentElement
-            if (parent) {
-              const placeholder = parent.querySelector(".image-placeholder") as HTMLElement
-              if (placeholder) {
-                placeholder.style.display = "flex"
-              }
-            }
-          }}
-        />
-      )
-    }
-
-    return null
-  }
-
+  
   if (viewMode === "list") {
     return (
       <Link href={`/catalogo/produto/${product.id}`}>
@@ -71,19 +31,13 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
           <div className="flex mobile-gap lg:gap-4 mobile-p lg:p-4">
             {/* Image Section - otimizado para mobile */}
             <div className="w-16 h-16 lg:w-28 lg:h-28 relative flex-shrink-0 rounded-lg overflow-hidden bg-muted/50">
-              {renderImage(
-                product.imagem,
-                product.nome || "Produto",
-                "w-full h-full object-cover group-hover:scale-105 mobile-transition",
-              )}
-
-              {/* Placeholder - sempre presente mas pode estar oculto */}
-              <div
-                className="image-placeholder w-full h-full bg-muted flex items-center justify-center"
-                style={{ display: renderImage(product.imagem, "", "") ? "none" : "flex" }}
-              >
-                <Package className="h-4 w-4 lg:h-6 lg:w-6 text-muted-foreground" />
-              </div>
+                <Image
+                    src={product.imagem || "/placeholder.svg"}
+                    alt={product.nome || "Produto"}
+                    width={100}
+                    height={100}
+                    className={"w-full h-full object-cover group-hover:scale-105 mobile-transition"}
+                />
 
               {/* Badge de estoque baixo */}
               {!product.is_bulk && product.estoque <= 5 && product.estoque > 0 && (
@@ -129,22 +83,13 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
       <Card className="group h-full overflow-hidden hover:shadow-xl mobile-transition border border-border bg-card hover:bg-card/80 hover:-translate-y-1 backdrop-blur-sm cursor-pointer mobile-card">
         <CardHeader className="p-0 relative">
           <div className="relative overflow-hidden rounded-t-lg">
-            {renderImage(
-              product.imagem,
-              product.nome || "Produto",
-              "h-32 lg:h-40 w-full object-cover group-hover:scale-105 mobile-transition",
-            )}
-
-            {/* Placeholder - sempre presente mas pode estar oculto */}
-            <div
-              className="image-placeholder h-32 lg:h-40 w-full bg-muted flex items-center justify-center"
-              style={{ display: renderImage(product.imagem, "", "") ? "none" : "flex" }}
-            >
-              <div className="text-center">
-                <Package className="h-8 w-8 lg:h-10 lg:w-10 text-muted-foreground mx-auto mb-2" />
-                <span className="mobile-text-xs lg:text-sm font-medium text-muted-foreground">Sem imagem</span>
-              </div>
-            </div>
+            <Image
+              src={product.imagem || "/placeholder.svg"}
+              alt={product.nome || "Produto"}
+              width={300}
+              height={200}
+              className={"h-32 lg:h-40 w-full object-cover group-hover:scale-105 mobile-transition"}
+            />
 
             {/* Badge de estoque baixo */}
             {!product.is_bulk && product.estoque <= 5 && product.estoque > 0 && (
@@ -196,3 +141,5 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
     </Link>
   )
 }
+
+    
