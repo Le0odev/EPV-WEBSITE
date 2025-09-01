@@ -48,7 +48,7 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
                 </h3>
                 <div className="flex items-baseline gap-2">
                   <span className="mobile-text-sm lg:text-xl font-bold text-primary">{formatPrice(product.preco)}</span>
-                  <span className="text-xs text-muted-foreground lg:hidden">ver detalhes</span>
+                  <span className="text-xs text-muted-foreground lg:hidden">• ver detalhes</span>
                 </div>
             </div>
 
