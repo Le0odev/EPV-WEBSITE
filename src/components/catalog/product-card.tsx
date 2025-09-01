@@ -141,5 +141,3 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
     </Link>
   )
 }
-
-    
