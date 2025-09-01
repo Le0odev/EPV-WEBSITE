@@ -62,7 +62,7 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
   // Grid Mode (default)
   return (
     <Link href={`/catalogo/produto/${product.id}`} className="block w-full">
-      <Card className="group h-full overflow-hidden hover:shadow-xl mobile-transition border border-border bg-card hover:bg-card/80 hover:-translate-y-1 backdrop-blur-sm cursor-pointer mobile-card">
+      <Card className="group h-full overflow-hidden hover:shadow-xl mobile-transition border border-border bg-card hover:bg-card/80 hover:-translate-y-1 backdrop-blur-sm cursor-pointer mobile-card flex flex-col">
         <CardHeader className="p-0 relative">
           <div className="aspect-[4/3] w-full relative overflow-hidden rounded-t-lg bg-muted">
             <Image
@@ -76,7 +76,7 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
           </div>
         </CardHeader>
 
-        <CardContent className="mobile-p lg:p-4 flex flex-col h-[calc(100%-120px)]">
+        <CardContent className="mobile-p lg:p-4 flex flex-col flex-1">
           <div className="flex-grow mobile-space-y">
               <h3 className="font-semibold mobile-text-sm lg:text-base text-foreground line-clamp-2 leading-tight min-h-[2.5rem] group-hover:text-primary mobile-transition">
                 {product.nome}
@@ -87,7 +87,7 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
               </p>
           </div>
 
-          <div className="pt-2">
+          <div className="pt-2 mt-auto">
             <div className="mobile-text-sm lg:text-lg font-bold text-primary mb-2">{formatPrice(product.preco)}</div>
             <div className="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 lg:py-2.5 px-3 lg:px-4 rounded-lg mobile-transition shadow-sm hover:shadow-md transform hover:scale-105 touch-target">
               <ShoppingCart className="h-4 w-4" />
