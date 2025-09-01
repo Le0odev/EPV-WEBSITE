@@ -29,7 +29,7 @@ export function ProductCard({ product, viewMode = "grid" }: ProductCardProps) {
     if (!url || typeof url !== "string") return false
     try {
       const urlObj = new URL(url)
-      return urlObj.protocol === "http:" || urlObj.protocol === "https:"
+      return urlObj.protocol === "http:" || urlObj.protocol === "https"
     } catch {
       return false
     }
