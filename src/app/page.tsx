@@ -227,7 +227,7 @@ function ContactSection() {
 
 export default function Home() {
   return (
-    <div className="flex min-h-dvh flex-col bg-background">
+    <div className="flex min-h-dvh flex-col bg-background overflow-x-hidden">
       <Header />
       <main className="flex-1">
         <HeroSection />
@@ -241,6 +241,8 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
 
