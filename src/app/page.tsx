@@ -27,7 +27,7 @@ function HeroSection() {
   return (
     <section className="relative h-[80vh] min-h-[400px] w-full">
       <Image
-        src="https://placehold.co/1920x1080.png"
+        src="https://images.unsplash.com/photo-1633509907796-ece8a21bdbcb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Produtos naturais em uma mesa"
         data-ai-hint="natural products grains"
         fill
@@ -241,3 +241,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
