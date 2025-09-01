@@ -25,7 +25,7 @@ export function Footer() {
                         <address className="not-italic space-y-2 text-sm">
                             <p>Av. Jerônimo Gueiros - Centro, Abreu e Lima - PE</p>
                             <a href="tel:+5581991676177" className="block hover:text-foreground">(81) 99167-6177</a>
-                            <a href="mailto:contato@verdeconexao.com.br" className="block hover:text-foreground">contato@emporioverde.com</a>
+                            <a href="mailto:emporio.verdegraos0808@hotmail.com" className="block hover:text-foreground">emporio.verdegraos0808@hotmail.com</a>
                         </address>
                     </div>
                     <div>

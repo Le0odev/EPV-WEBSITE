@@ -13,9 +13,10 @@ export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navLinks = [
+        { href: '/catalogo', label: 'Catálogo' },
         { href: '#produtos', label: 'Produtos' },
         { href: '#sobre', label: 'Sobre Nós' },
-        { href: '#contato', 'label': 'Contato' },
+        { href: '#contato', label: 'Contato' },
     ];
 
     const handleLinkClick = () => {

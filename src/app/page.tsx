@@ -102,8 +102,8 @@ function CategoryCard({ category }: CategoryCardProps) {
       </CardContent>
       <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
         <Button asChild>
-          <Link href="https://emporioverdegraos.vercel.app/catalogo">
-            Catálogo
+          <Link href="/catalogo">
+            Ver Catálogo
           </Link>
         </Button>
       </div>
@@ -167,7 +167,7 @@ function AboutSection() {
           <div className="flex flex-col justify-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl font-headline">Nossa História</h2>
             <p className="text-muted-foreground md:text-lg">
-              Nascido da paixão por uma vida saudável e pelo poder da naturez, o Empório Verde Grãos é um sonho que se tornou realidade. Há mais de X anos, nos dedicamos a selecionar os melhores grãos, ervas e produtos naturais, acreditando que a qualidade do que comemos reflete diretamente em nosso bem-estar.
+              Nascido da paixão por uma vida saudável e pelo poder da natureza, o Empório Verde Grãos é um sonho que se tornou realidade. Há mais de 5 anos, nos dedicamos a selecionar os melhores grãos, ervas e produtos naturais, acreditando que a qualidade do que comemos reflete diretamente em nosso bem-estar.
             </p>
             <p className="text-muted-foreground md:text-lg">
               Nossa missão é simples: levar saúde e sabor à sua mesa, com a confiança e o carinho de quem entende do assunto. Valorizamos a tradição, o atendimento próximo e a pureza de cada item que oferecemos.
@@ -195,7 +195,7 @@ function ContactSection() {
                     <div className="space-y-2 text-muted-foreground">
                         <a href="https://maps.app.goo.gl/yQ4u2v6AozY7RzP36" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary"><MapPin className="h-5 w-5"/>Av. Jerônimo Gueiros - Centro, Abreu e Lima - PE</a>
                         <a href="tel:+5581991676177" className="flex items-center gap-2 hover:text-primary"><Phone className="h-5 w-5"/>(81) 99167-6177</a>
-                        <a href="mailto:contato@emporioverde.com" className="flex items-center gap-2 hover:text-primary"><Mail className="h-5 w-5"/>contato@emporioverde.com</a>
+                        <a href="mailto:emporio.verdegraos0808@hotmail.com" className="flex items-center gap-2 hover:text-primary"><Mail className="h-5 w-5"/>emporio.verdegraos0808@hotmail.com</a>
                     </div>
                 </div>
                 <div className="space-y-4">

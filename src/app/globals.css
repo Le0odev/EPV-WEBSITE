@@ -24,6 +24,16 @@
     --input: 140 5% 85%;
     --ring: 141 25% 39%;
     --radius: 0.5rem;
+    
+    /* Sidebar variables */
+    --sidebar-background: 0 0% 100%; /* white background */
+    --sidebar-foreground: 25 74% 15%; /* dark brown text */
+    --sidebar-primary: 141 25% 39%; /* natural green */
+    --sidebar-primary-foreground: 0 0% 100%; /* white text on green */
+    --sidebar-accent: 140 7% 85%; /* light gray for hover */
+    --sidebar-accent-foreground: 25 74% 15%; /* dark brown text */
+    --sidebar-border: 140 5% 80%; /* light border */
+    --sidebar-ring: 141 25% 39%; /* green ring */
   }
 
   .dark {
@@ -46,6 +56,16 @@
     --border: 25 10% 25%;
     --input: 25 10% 25%;
     --ring: 141 25% 45%;
+    
+    /* Sidebar variables for dark mode */
+    --sidebar-background: 25 10% 15%; /* dark background */
+    --sidebar-foreground: 39 20% 85%; /* light text */
+    --sidebar-primary: 141 25% 45%; /* natural green */
+    --sidebar-primary-foreground: 0 0% 98%; /* light text on green */
+    --sidebar-accent: 25 10% 20%; /* darker gray for hover */
+    --sidebar-accent-foreground: 39 20% 85%; /* light text */
+    --sidebar-border: 25 10% 25%; /* dark border */
+    --sidebar-ring: 141 25% 45%; /* green ring */
   }
 }
 
@@ -61,5 +81,62 @@
   }
   html {
     @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  /* Mobile-first optimizations */
+  .mobile-optimized {
+    @apply sm:hidden;
+  }
+  
+  .desktop-only {
+    @apply hidden lg:block;
+  }
+  
+  /* Touch-friendly button sizes */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Smooth transitions for mobile */
+  .mobile-transition {
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  /* Mobile card optimizations */
+  .mobile-card {
+    @apply bg-card border-0 lg:border lg:border-border rounded-lg lg:rounded-xl shadow-sm lg:shadow-md;
+  }
+  
+  /* Mobile spacing utilities */
+  .mobile-space-y {
+    @apply space-y-3 lg:space-y-4;
+  }
+  
+  .mobile-gap {
+    @apply gap-3 lg:gap-4;
+  }
+  
+  /* Mobile text sizes */
+  .mobile-text-sm {
+    @apply text-sm lg:text-base;
+  }
+  
+  .mobile-text-xs {
+    @apply text-xs lg:text-sm;
+  }
+  
+  /* Mobile padding utilities */
+  .mobile-p {
+    @apply p-3 lg:p-4;
+  }
+  
+  .mobile-px {
+    @apply px-3 lg:px-4;
+  }
+  
+  .mobile-py {
+    @apply py-3 lg:py-4;
   }
 }

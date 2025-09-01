@@ -1,19 +1,35 @@
-import * as React from "react"
+import { useState, useEffect } from 'react'
 
-const MOBILE_BREAKPOINT = 768
+export function useMobile() {
+  const [isMobile, setIsMobile] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
-export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
-
-  React.useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
-    const onChange = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+  useEffect(() => {
+    setMounted(true)
+    
+    const checkMobile = () => {
+      // Verifica se é mobile baseado no viewport e user agent
+      const isMobileViewport = window.innerWidth <= 1024
+      const isMobileUserAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      
+      setIsMobile(isMobileViewport || isMobileUserAgent)
     }
-    mql.addEventListener("change", onChange)
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    return () => mql.removeEventListener("change", onChange)
+
+    checkMobile()
+    
+    const handleResize = () => {
+      checkMobile()
+    }
+
+    window.addEventListener('resize', handleResize)
+    
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
-  return !!isMobile
+  // Retorna false durante SSR para evitar problemas de hidratação
+  if (!mounted) return false
+  
+  return isMobile
 }
